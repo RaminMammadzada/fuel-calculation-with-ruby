@@ -13,16 +13,20 @@ class Main
   end
 
   def inform_user
-    p 'Three.... Two.... One....'
-    p ''
+    print 'Three.... '
     sleep 1
+    print 'Two.... '
+    sleep 1
+    print 'One....'
+    sleep 1
+    puts ''
     @flight_route_info.each do |flight|
       current_planet = Planet.new(flight[1])
       p "The space shuttle is #{flight[0]}ing #{flight[0].to_s == 'launch' ? 'from' : 'to'} #{current_planet.name}!"
       sleep 1
     end
 
-    p "The journey is finished! "
+    p 'The journey is finished! '
   end
 
   def create_ship(ship_mass)
@@ -35,12 +39,12 @@ class Main
     @flight_route_info.each do |flight|
       @total_fuel_needed += @ship.operate(@ship.mass + @total_fuel_needed, flight)
     end
-    p "Here is the total amount of fuel you used: #{@total_fuel_needed.round()} kg"
+    p "Here is the total amount of fuel you used: #{@total_fuel_needed.round} kg"
   end
 end
 
 Main.new(
-  75432,
+  75_432,
   [
     [:launch, 9.807],
     [:land, 1.62],
