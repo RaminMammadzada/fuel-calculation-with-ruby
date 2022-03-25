@@ -15,6 +15,6 @@ class Planet
       3.711 => 'Moon',
       1.62 => 'Mars'
     ]
-    @name = planet_gravity_map[9.807]
+    @name = planet_gravity_map[@gravity]
   end
 end
