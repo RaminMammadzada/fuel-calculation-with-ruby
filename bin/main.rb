@@ -31,7 +31,6 @@ class Main
 
   def create_ship(ship_mass)
     @ship = Ship.new(ship_mass)
-    @planet = Planet.new(9.807)
   end
 
   def start_journey
