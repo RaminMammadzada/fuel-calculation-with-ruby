@@ -2,7 +2,7 @@
 
 ## Description
 
-The fuel required for the whole interplanetary flight journey was needed to calculate. It is needed to calculate the amount of fuel to launch from one planet of the Solar system, and to land on another planet of the Solar system, depending on the flight route.
+The fuel required for the whole interplanetary flight journey was needed to be calculated. It is needed to calculate the amount of fuel to launch from one planet of the Solar system, and to land on another planet of the Solar system, depending on the flight route.
 
 ## Run app
 
