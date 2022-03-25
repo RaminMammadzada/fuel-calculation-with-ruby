@@ -7,43 +7,35 @@ class Main
     @flight_route_info = flight_route_info
     @ship = nil
     @total_fuel_needed = 0
+    inform_user
     create_ship(ship_mass)
     start_journey
   end
 
-  def start_calculation
-    p "flight info: #{@flight_route_info}"
-    p 'Calculation is done!'
+  def inform_user
+    p 'Three.... Two.... One....'
+    p ''
+    sleep 1
+    @flight_route_info.each do |flight|
+      current_planet = Planet.new(flight[1])
+      p "The space shuttle is #{flight[0]}ing #{flight[0].to_s == 'launch' ? 'from' : 'to'} #{current_planet.name}!"
+      sleep 1
+    end
+
+    p "The journey is finished! "
   end
 
   def create_ship(ship_mass)
     @ship = Ship.new(ship_mass)
     @planet = Planet.new(9.807)
-    p @ship.mass
   end
 
   def start_journey
     @flight_route_info.reverse!
-    # operation_mass = 0
     @flight_route_info.each do |flight|
-
-      # my trial starts
-      # p "operation_mass: #{operation_mass}"
       @total_fuel_needed += @ship.operate(@ship.mass + @total_fuel_needed, flight)
-
-      # my trial ends
-
-      # p "flight type: #{flight[0]}"
-      # current_fuel = @ship.operate(flight)
-      # p "fuel for current operation: #{current_fuel}"
-      # p "----"
     end
-    # p @ship.calculate_fuel_for_landing(@ship.mass, 9.807)
-
-    # if @ship.is_in_air
-    #
-    # end
-    p "total: #{@total_fuel_needed}"
+    p "Here is the total amount of fuel you used: #{@total_fuel_needed.round()} kg"
   end
 end
 
@@ -59,6 +51,24 @@ Main.new(
   ]
 )
 
+# You can test it
 # Main.new(
-#   14606, [[:launch, 9.807], [:land, 3.711], [:launch, 3.711], [:land, 9.807]]
+#   14606,
+#   [
+#     [:launch, 9.807],
+#     [:land, 3.711],
+#     [:launch, 3.711],
+#     [:land, 9.807]
+#   ]
+# )
+
+# You can test it
+# Main.new(
+#   28801,
+#   [
+#     [:launch, 9.807],
+#     [:land, 1.62],
+#     [:launch, 1.62],
+#     [:land, 9.807]
+#   ]
 # )
